@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html manifest="test.manifest">
 <head>
     <meta charset="UTF-8">
     <title>Case X-XX</title>
@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/test.css">
+    <script src="js/vendor/modernizr.custom.73302.js"></script>
 </head>
 <body ng-app="demoApp">
     <div class="navbar navbar-default navbar-inversed">
@@ -37,9 +38,21 @@
         <div ng-if="!isWebRtcSupported">
             <p>WebRTC is not supported by your browser.</p>
             <p>Please install a browser that supports WebRTC:</p>
-            <img class="firefox-download-logo" src="images/firefox_download_logo.png" alt="firefox_download_logo.png">
-            <img class="chrome-download-logo" src="images/chrome_download_logo.png" alt="chrome_download_log.png">
+            <a href="https://support.google.com/chrome/answer/95346?hl=en" target="_blank">
+                <img class="chrome-download-logo" src="images/chrome_download_logo.png" alt="chrome_download_log.png">
+            </a>
+            <a href="https://support.mozilla.org/en-US/kb/how-download-and-install-firefox-windows" target="_blank">
+                <img class="firefox-download-logo" src="images/firefox_download_logo.png"
+                   alt="firefox_download_logo.png">
+            </a>
             <p>Alternatively, you may FFS...</p>
+        </div>
+        <div ng-if="isWebSocketSupported">
+            <p>WebSocket is supported.</p>
+            <p>FFS: end-to-end functionality not guaranteed. Add test.</p>
+        </div>
+        <div ng-if="!isWebSocketSupported">
+            <p>WebSocket is not supported by the browser.</p>
         </div>
     </div>
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
